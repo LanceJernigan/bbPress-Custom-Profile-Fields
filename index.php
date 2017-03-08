@@ -78,4 +78,20 @@
         }
     }
 
+    function my_custom_fields($fields) {
+
+        $fields[] = [
+            'label' => 'Phone',
+            'name' => 'phone',
+            'section' => 'contact',
+            'priority' => 'before',
+            'default' => '8653041322'
+        ];
+
+        return $fields;
+
+    }
+
+    add_filter('bbCPF_get_fields', 'my_custom_fields');
+
     bbCPF();

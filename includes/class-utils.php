@@ -6,32 +6,20 @@
 
             public function __constructor() {}
 
-            public function get_fields($withValues = true) {
+            public function get_fields() {
 
                 if (bbCPF()->fields !== null && bbCPF()->fields->fetched === true)
                     $fields = bbCPF()->fields->fields;
                 else
-                    $fields = [
-                        [
-                            'label' => 'Phone',
-                            'name' => 'phone',
-                            'section' => 'contact',
-                            'priority' => 'before',
-                            'default' => '8653041322'
-                        ],
-                    ];
+                    $fields = [];
 
-                if ($withValues === true) {
+                $fields = apply_filters('bbCPF_get_fields', $fields);
 
-                    $fields = array_map(function($field) {
+                return array_map(function($field) {
 
-                        return array_merge($field, ['value' => get_user_meta(19, 'bbCPF_' . $field['name'], true) ?: $field['default']]);
+                    return array_merge($field, ['value' => get_user_meta(19, 'bbCPF_' . $field['name'], true) ?: $field['default']]);
 
-                    }, $fields);
-
-                }
-
-                return apply_filters('bbCPF_get_fields', $fields);
+                }, $fields);
 
             }
 
