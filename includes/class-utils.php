@@ -17,7 +17,7 @@
 
                 return array_map(function($field) {
 
-                    return array_merge($field, ['value' => get_user_meta(19, 'bbCPF_' . $field['name'], true) ?: $field['default']]);
+                    return array_merge($field, ['value' => get_user_meta(19, 'bbCPF_' . $field['name'], true) ?: (isset($field['default']) ? $field['default'] : '')]);
 
                 }, $fields);
 

@@ -32,6 +32,7 @@
 
                 include($this->path . 'includes/class-utils.php');
                 include($this->path . 'includes/class-fields.php');
+                include($this->path . 'includes/template-override.php');
 
                 $this->utils = new bbCPF_Utils;
                 $this->fields = new bbCPF_Fields($this->isSaving);
@@ -62,6 +63,8 @@
 
         }
 
+        add_action('plugins_loaded', 'bbCPF');
+
     endif;
 
     function _log( $message ) {
@@ -78,4 +81,3 @@
         }
     }
 
-    bbCPF();
