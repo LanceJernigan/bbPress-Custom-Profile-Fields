@@ -5,7 +5,7 @@
      * Description: Adds custom fields to the bbPress profile
      * Author:  Lance Jernigan
      * Author URI: https://lancejernigan.com
-     * Version: 0.0.1
+     * Version: 0.0.2
      */
 
     if (! class_exists('bbCPF')) :
