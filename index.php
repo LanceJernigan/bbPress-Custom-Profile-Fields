@@ -66,18 +66,3 @@
         add_action('plugins_loaded', 'bbCPF');
 
     endif;
-
-    function _log( $message ) {
-        if( WP_DEBUG === true ){
-            error_log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            foreach (func_get_args() as $arg) {
-                if( is_array( $arg ) || is_object( $arg ) ){
-                    error_log( print_r( $arg, true ) );
-                } else {
-                    error_log( $arg );
-                }
-            }
-            error_log("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-        }
-    }
-
